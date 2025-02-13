@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: onboarding
+  profiles:
+    default: dev
