@@ -1,0 +1,34 @@
+### 회원가입
+POST http://localhost:8080/signup
+Content-Type: application/json
+
+{
+  "username": "JIN HO",
+  "password": "12341234",
+  "nickname": "Mentos"
+}
+
+> {%
+  client.test("회원가입 성공", () => {
+    client.assert(response.status === 200, "응답 상태가 200이어야 합니다.")
+    client.assert(response.body.username === "JIN HO");
+    client.assert(response.body.nickname === "Mentos");
+    client.assert(response.body.authorities[0].authorityName === "ROLE_USER");
+  });
+%}
+
+### 로그인
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "JIN HO",
+  "password": "12341234"
+}
+
+> {%
+  client.test("로그인 성공", () => {
+    client.assert(response.status === 200, "응답 상태가 200이어야 합니다.")
+    client.assert(response.body.token.length > 0);
+  });
+%}
