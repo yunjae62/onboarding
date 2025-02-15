@@ -1,10 +1,9 @@
 spring:
   datasource:
-    hikari:
-      driver-class-name: org.postgresql.Driver
-      jdbc-url: jdbc:postgresql://localhost:54320/sample
-      username: sample
-      password: 1234
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:54320/sample
+    username: sample
+    password: 1234
   data:
     redis:
       host: localhost
